@@ -8,7 +8,7 @@ import pandas as pd      # Popular data manipulation and analysis library for Py
 import emoji             # Module for working with and processing emojis
 
 # Local application imports
-import chat_features     # Module for handling specific chat features
+from . import chat_features     # Module for handling specific chat features
 
 
 def chat_db(json_file):
