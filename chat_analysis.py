@@ -66,7 +66,7 @@ def prompt_for_new_path():
     """
     while True:
         # Prompt the user to enter a file path
-        file_path = input("Enter new file path: ").strip()
+        file_path = input("\nEnter new file path: ").strip()
 
         # Check if the entered path exists
         if os.path.exists(file_path):
@@ -75,7 +75,7 @@ def prompt_for_new_path():
             return file_path
         else:
             # Inform the user if the path is invalid and prompt again
-            print("Invalid file path. Please enter a valid path.")
+            print("\nInvalid file path. Please enter a valid path.\n")
 
 
 def get_user_permission():
@@ -98,7 +98,7 @@ def get_user_permission():
             return permission
         else:
             # Prompt the user to enter a valid response
-            print("Please enter 'yes' or 'no'.")
+            print("\nPlease enter 'yes' or 'no'.\n")
 
 
 def rename_folders(directory):
@@ -176,12 +176,13 @@ def chat_analysis(directory, entire=False):
 
         # Handle user input for selecting an option
         try:
-            num_input = int(input("Please input the number of the chat feature you want to see: "))
+            num_input = int(input("\nPlease input the number of the chat feature you want to see: "))
+            print('')
 
             # Process the selected option
             if num_input in options:
                 if num_input == 8:
-                    print('\nGoodbye\n')
+                    print('Goodbye\n')
                     sys.exit()  # Exit the program if user selects 'Exit'
 
                 elif num_input == 7:
@@ -221,13 +222,13 @@ def chat_analysis(directory, entire=False):
                     print(chat_features.message_stats(df))
                     print('')
 
-                print("Please Choose Another Option")
+                print("Please Choose Another Option:")
 
             else:
-                print("Please choose a valid number from the list.")
+                print("\nPlease choose a valid number from the list.\n")
 
         except ValueError:
-            print("Invalid input. Please enter a number.")
+            print("\nInvalid input. Please enter a number.\n")
 
 
 def call_folder(directory):
@@ -274,11 +275,12 @@ def call_folder(directory):
             # Loop to handle the user's selection of a folder
             while True:
                 try:
-                    num_input = int(input("Please input the number of the chat you want to analyze: "))
+                    num_input = int(input("\nPlease input the number of the chat you want to analyze: "))
+                    print('')
                     # Process the user's selection
                     if num_input in guesses:
                         if num_input == len(guesses):
-                            print('\nGoodbye\n')
+                            print('Goodbye\n')
                             sys.exit()  # Exit the program if the user selects 'Exit'
                         else:
                             # Conduct chat analysis on the selected folder
@@ -314,7 +316,7 @@ def main():
         # Interact with the user to confirm using the saved file path
         use_saved = input(f"Found a saved file path: {saved_file_path}. Do you want to use this path? (yes/no): ").lower()
         while use_saved not in ['yes', 'y', 'no', 'n']:
-            print("Please enter 'yes' or 'no'.")
+            print("\nPlease enter 'yes' or 'no'.\n")
             use_saved = input("Do you want to use this path? (yes/no): ").lower()
 
         # Choose the file path based on the user's decision
@@ -324,19 +326,19 @@ def main():
         file_path = prompt_for_new_path()
 
     # Confirm the file path being used
-    print(f"Using file path: {file_path}")
+    print(f"\nUsing file path: {file_path}\n")
 
     # Request user permission to proceed with folder renaming
     permission = get_user_permission()
 
     # Execute actions based on the user's permission
     if permission in ['no', 'n']:
-        print("No changes will be made to your folder names.")
+        print("\nNo changes will be made to your folder names.\n")
     elif permission in ['yes', 'y']:
-        print("You agreed to proceed with the changes.")
+        print("\nYou agreed to proceed with the changes.\n")
         # Rename folders and then call the folder analysis function
         rename_folders(file_path)
-        print("Folder names have been updated.")
+        print("Folder names have been updated.\n")
         # Initiate chat folder analysis process
         call_folder(file_path)
 
