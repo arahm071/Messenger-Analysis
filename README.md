@@ -1,9 +1,10 @@
-# Facebook Chat Data Analysis
+# Messenger Unwrapped (Facebook Chat Data Analysis)
+
+![DALL·E 2024-03-20 19 06 56 - Integrate the uploaded Messenger logo into a rectangular title card design  The title card should have a sleek, high-tech background that resonates wi](https://github.com/arahm071/Messenger-Unwrapped/assets/84313155/390e7908-2739-494d-835b-83453429801b)
 
 ## Overview
 
 This Python application offers a straightforward solution for analyzing Facebook Messenger chats. It extracts chat data from JSON files, cleans it, and enables users to perform various analyses, such as identifying common words and emojis, and visualizing message frequency over time. The tool, designed with a terminal-based interface, caters to both individual and collective chat data, allowing users to gain insights into their messaging habits and trends. Additionally, it provides the functionality to export the analyzed data into a CSV format for further use.
-
 
 ## Features
 ### Data Handling and Preparation
@@ -47,7 +48,6 @@ Once the data is prepared, the application offers a range of features to analyze
 - **Emoji:** A specialized library for processing emojis within text data.
 - **FuzzyWuzzy:** For string matching, useful in tasks like chat participant identification.
 - **Thefuzz:** Another string matching library used in conjunction with FuzzyWuzzy.
-
 
 ## Getting Started
 
