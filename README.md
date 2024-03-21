@@ -25,14 +25,24 @@ Once the data is prepared, the application offers a range of features to analyze
 
 1. **Message Stats:** This feature aggregates messaging statistics into a table showing each participant's message count, word count, and call duration. Notably, the call duration reflects the time for calls initiated by each user, meaning it only increases for the person who started the call, not for other participants in the call.
 
+![readme_ex_general_messsage_stats](https://github.com/arahm071/Messenger-Unwrapped/assets/84313155/17931fbb-4bfd-4099-83be-52c08560a5e9)
+
 2. **Top Words:** Analyzes and ranks the top 10 words used by the user and the chat partner(s). In group chats, it aggregates this data across all participants, providing a comparative word usage analysis.
+
+![readme_ex_chats_top_words](https://github.com/arahm071/Messenger-Unwrapped/assets/84313155/51ffc67d-f98a-4102-a20e-a5f1903e431a)
 
 3. **Emoji Analysis:** Similar to the Top Words feature, but focuses on emoji usage. It identifies and ranks the top 10 emojis used by each participant in the chat.
 
+![readme_ex_chats_top_emojis](https://github.com/arahm071/Messenger-Unwrapped/assets/84313155/1e4a5477-e164-4192-b1be-f1a528c8793c)
+
 4. **Message Distribution:** Visualized through a donut chart, this feature shows the distribution of total messages sent by each participant in a chat. It includes the total message count in the center, with individual contributions and their percentage of the total displayed in segments.
 
+![readme_ex_messegae_distribution](https://github.com/arahm071/Messenger-Unwrapped/assets/84313155/22ab9929-dfa6-48e4-a6ab-1492c9728da8)
+
 5. **Total Message Frequency:** Generates a heat map to visualize the frequency of messages sent on different days and times. This feature provides insights into the most active periods in the chat history, offering a temporal dimension to the analysis.
-   
+
+![readme_ex_message_frequency](https://github.com/arahm071/Messenger-Unwrapped/assets/84313155/a60d1914-9b84-4064-8105-5b1c1433ecf3)
+
 6. **Export Cleaned Data to CSV:** This feature allows you to export the cleaned data from the currently selected chat into a CSV file. The CSV file will be saved in a designated folder, making it easily accessible for any additional processing or review.
 
 

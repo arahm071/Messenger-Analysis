@@ -5,6 +5,7 @@ __pycache__/
 
 # Custom folder to be ignored
 deprecated/
+pretty/
 
 # Ignore a specific file
 saved_file_path.txt

@@ -9,6 +9,7 @@ import numpy as np         # Library for numerical computing
 import matplotlib.pyplot as plt  # Plotting library for creating static, animated, and interactive visualizations
 import seaborn as sns      # Data visualization library based on matplotlib, provides a high-level interface for drawing attractive and informative statistical graphics
 import emoji               # Library to work with and process emojis in text data
+from matplotlib.colors import LinearSegmentedColormap
 
 
 def unicode_emoji_converter(unicode_str):
@@ -169,18 +170,19 @@ def word_count(s):
 
 def message_stats(df_m_s):
     """
-    Calculate message statistics for each sender in a DataFrame.
+    Calculate and plot message statistics for each sender in a DataFrame.
 
-    The function preprocesses the messages to exclude those containing URLs
-    and to remove non-alphanumeric characters (including emojis). It then
-    calculates the count of messages and the sum of word counts for each sender.
-    If present, it also calculates the sum of call durations.
+    Initially, the function preprocesses messages to exclude those containing URLs and to 
+    remove non-alphanumeric characters (including emojis). It calculates the count of messages 
+    and the sum of word counts for each sender. If present, it also calculates the sum of 
+    call durations. Finally, it plots the statistics in a table format, highlighting the 
+    index (names) in bold and customizing the cell and header colors.
 
     Parameters:
     df_m_s (DataFrame): DataFrame containing messages and sender information.
 
     Returns:
-    DataFrame: A DataFrame containing message statistics grouped by sender. 
+    None: Displays a matplotlib plot showing the message statistics in a table format.
     """
     # Exclude messages containing URLs
     df_m_s = df_m_s[~df_m_s['Message'].str.contains('http')].copy()
@@ -213,8 +215,34 @@ def message_stats(df_m_s):
     # Create a total row and concatenate it to the DataFrame
     total_row = pd.DataFrame(stats_df.agg(["sum"])).rename(index={"sum": "Total"})
     stats_df = pd.concat([stats_df, total_row])
+    
+    # Plotting the statistics table
+    fig, ax = plt.subplots(figsize=(10, 3))  # Create subplot without frame
+    ax.axis('tight')
+    ax.axis('off')
+    cell_text = stats_df.reset_index().values
+    col_labels = ['Name'] + stats_df.columns.tolist()
 
-    return stats_df
+    # Custom styling for the table
+    the_table = ax.table(cellText=cell_text,
+                         colLabels=col_labels,
+                         loc='center',
+                         cellLoc='center',
+                         colColours=["#2d7cff"] * (len(stats_df.columns) + 1),
+                         colLoc='center',
+                         cellColours=[["#f1f1f2"] * (len(stats_df.columns) + 1)] * len(stats_df),
+                         )
+    the_table.scale(1, 1.5)  # Adjust table scale
+
+    # Bold the index (names) in the table and make the column names white and bold
+    for (i, j), cell in the_table.get_celld().items():
+        if i == 0:  # Only for header row
+            cell.get_text().set_weight('bold')
+            cell.get_text().set_color('white')
+        elif i > 0 and j == 0:  # Only for index column, excluding the header
+            cell.get_text().set_weight('bold')
+
+    plt.show()
 
 
 def top_words(df_t_w):
@@ -453,10 +481,16 @@ def total_message_frequency(df_t_m_f):
     # Create a pivot table for the heatmap
     pivot_table = message_count_df.pivot_table(values='Count', index='Day', columns='Hour', fill_value=0)
     pivot_table = pivot_table.reindex(desired_order)
+    
+    # Define the colors as a list
+    colors = ["#ffffff", "#2d7cff", "#9a37ff", "#d946b2", "#d946b2"]
+
+    # Create a colormap
+    custom_cmap = LinearSegmentedColormap.from_list('custom_theme', colors, N=256)
 
     # Configure and display the heatmap
     plt.figure(figsize=(10, 6))
-    sns.heatmap(pivot_table, cmap='Reds', annot=False, fmt='d', linewidth=.5)
+    sns.heatmap(pivot_table, cmap=custom_cmap, annot=False, fmt='d', linewidth=.5)
     plt.xlabel('Hour of the Day')
     plt.ylabel('Day of the Week')
     plt.title(f"Message Count Heatmap with {df_t_m_f.index.name}")
