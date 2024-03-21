@@ -234,9 +234,12 @@ def message_stats(df_m_s):
                          )
     the_table.scale(1, 1.5)  # Adjust table scale
 
-    # Bold the index (names) in the table
+    # Bold the index (names) in the table and make the column names white and bold
     for (i, j), cell in the_table.get_celld().items():
-        if i > 0 and j == 0:  # Only for index column, excluding the header
+        if i == 0:  # Only for header row
+            cell.get_text().set_weight('bold')
+            cell.get_text().set_color('white')
+        elif i > 0 and j == 0:  # Only for index column, excluding the header
             cell.get_text().set_weight('bold')
 
     plt.show()
