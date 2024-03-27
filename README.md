@@ -2,7 +2,7 @@
 
 ___
 
-# Messenger Unwrapped (Facebook Chat Data Analysis)
+# Messenger Unwrapped
 
 ## Overview
 
