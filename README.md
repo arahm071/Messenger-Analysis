@@ -1,7 +1,7 @@
 ![DALL·E 2024-03-20 19 06 56 - Integrate the uploaded Messenger logo into a rectangular title card design  The title card should have a sleek, high-tech background that resonates wi](https://github.com/arahm071/Messenger-Unwrapped/assets/84313155/390e7908-2739-494d-835b-83453429801b)
 
 
-# Messenger Unwrapped
+# Messenger Unwrapped: Analyze Your Facebook Chats
 
 **Analyze your Facebook Messenger chats and discover hidden patterns.**
 
