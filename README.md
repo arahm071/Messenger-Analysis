@@ -1,13 +1,11 @@
 ![DALL·E 2024-03-20 19 06 56 - Integrate the uploaded Messenger logo into a rectangular title card design  The title card should have a sleek, high-tech background that resonates wi](https://github.com/arahm071/Messenger-Unwrapped/assets/84313155/390e7908-2739-494d-835b-83453429801b)
 
-
 # Messenger Unwrapped
 
 **Analyze your Facebook Messenger chats and discover hidden patterns.**
 
-Messenger Unwrapped is a Python application designed to help you understand your messaging habits. It works by:
+Messenger Unwrapped carefully **wrangles your chat data**, extracting it from Facebook JSON files, cleaning it, and preparing it for analysis. It works by:
 
-* **Extracting and cleaning chat data** from Facebook JSON files.
 * **Analyzing key metrics:**  
     * Most used words and emojis
     * Message distribution across participants
@@ -21,17 +19,17 @@ Messenger Unwrapped is a Python application designed to help you understand your
 * **Personalize your data journey:**  Use the exported CSV for custom analysis or create your own visualizations.
 
 ## Features
-### Data Handling and Preparation
-This application includes a robust process for preparing Facebook Messenger chat data, which involves data extraction and cleaning:
+### Data Wrangling and Preparation
+Messenger Unwrapped begins by meticulously preparing your Facebook Messenger chat data for analysis. This includes:
 
 ### Data Extraction
-- **Data Aggregation:** The application employs scripts (`single_folder.py` for individual chats and `all_folders.py` for all chats) to handle the extraction process. These scripts read JSON files from the specified directory, converting the contained JSON dictionaries into a list.
-- **DataFrame Creation:** The listed dictionaries are then transformed into a unified DataFrame. This process is identical whether analyzing a single chat or combining multiple chats.
+- **Flexible Extraction:** The application employs scripts (`single_folder.py` for individual chats and `all_folders.py` for all chats) to handle the extraction process. These scripts read JSON files from the specified directory, converting the contained JSON dictionaries into a list.
+- **Data Transformation Expertise:** The listed dictionaries are then transformed into a unified DataFrame. This process is identical whether analyzing a single chat or combining multiple chats.
 
 ### Data Cleaning and Transformation
 - **Initial Processing:** The `clean_messages` function takes the unified DataFrame and begins the cleaning process.
 - **Enhancing Data Readability:** Timestamps are converted into separate date and time columns for better readability. Columns are renamed for easier navigation, and rows with irrelevant data are filtered out.
-- **Data Enrichment:** Each message row is enriched with word and emoji counts, providing detailed insights for analysis.
+- **Insight-Driven Enrichment:** Each message row is enriched with word and emoji counts, providing detailed insights for analysis.
 - **Finalized DataFrame:** The result is a well-organized DataFrame, where all necessary information is cleanly presented and extraneous data is removed.
 
 ### Analytical Features
@@ -59,13 +57,12 @@ Once the data is prepared, the application offers a range of features to analyze
 
 6. **Export Cleaned Data to CSV:** This feature allows you to export the cleaned data from the currently selected chat into a CSV file. The CSV file will be saved in a designated folder, making it easily accessible for any additional processing or review.
 
-
 ## Technologies
 ### Language
 - **Python:** The core programming language used for the entire project.
 
 ### Libraries
-- **Pandas:** For data manipulation and analysis, particularly useful for working with structured data like DataFrames.
+- **Pandas:** For data wrangling, manipulation and analysis, particularly useful for working with structured data like DataFrames.
 - **NumPy:** Employed for numerical computing, aiding in efficient processing of numerical data.
 - **Matplotlib:** Used for creating static, interactive, and exploratory visualizations, essential in data analysis.
 - **JSON:** For handling JSON data files, fundamental in data extraction and processing.
